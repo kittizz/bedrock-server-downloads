@@ -1,0 +1,69 @@
+{
+    "release": {
+        "1.21.31": {
+            "windows": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.21.31.04.zip"
+            },
+            "linux": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.21.31.04.zip"
+            }
+        },
+        "1.21.40": {
+            "windows": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.21.40.03.zip"
+            },
+            "linux": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.21.40.03.zip"
+            }
+        },
+        "1.21.41": {
+            "windows": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.21.41.01.zip"
+            },
+            "linux": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.21.41.01.zip"
+            }
+        },
+        "1.21.42": {
+            "windows": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.21.42.01.zip"
+            },
+            "linux": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.21.42.01.zip"
+            }
+        },
+        "1.21.43": {
+            "windows": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.21.43.01.zip"
+            },
+            "linux": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.21.43.01.zip"
+            }
+        },
+        "1.21.44": {
+            "windows": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.21.44.01.zip"
+            },
+            "linux": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.21.44.01.zip"
+            }
+        },
+        "1.21.50": {
+            "windows": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.21.50.10.zip"
+            },
+            "linux": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.21.50.10.zip"
+            }
+        },
+        "1.21.51": {
+            "windows": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.21.51.02.zip"
+            },
+            "linux": {
+                "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.21.51.02.zip"
+            }
+        }
+    },
+    "preview": {}
+}

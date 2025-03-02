@@ -1,0 +1,32 @@
+name: Update Bedrock Server Download
+
+on:
+  workflow_dispatch:  # สามารถเรียกใช้ workflow ด้วยตนเอง
+  schedule:
+    - cron: '30 18 * * *'  # ทำงานทุกวันเวลา 18:30 UTC
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    name: Update
+    permissions:
+      contents: write  # ขอสิทธิ์ในการเขียนข้อมูลกลับไปที่ repository
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'   
+          cache: true
+      
+      - name: Run update script
+        run: |
+          go run main.go
+      
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated bedrock server download
