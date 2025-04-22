@@ -121,6 +121,14 @@
       "linux": {
         "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.21.80.20.zip"
       }
+    },
+    "1.21.90": {
+      "windows": {
+        "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.21.90.20.zip"
+      },
+      "linux": {
+        "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux-preview/bedrock-server-1.21.90.20.zip"
+      }
     }
   }
 }
