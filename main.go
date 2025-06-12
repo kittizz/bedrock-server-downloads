@@ -8,15 +8,14 @@ import (
 	"os"
 	"regexp"
 
-	"github.com/PuerkitoBio/goquery"
 	"github.com/hashicorp/go-version"
 )
 
 // Constants
 const (
-	MinecraftBedrockURL = "https://www.minecraft.net/en-us/download/server/bedrock"
-	DataFilePath        = "bedrock-server-downloads.json"
-	UserAgent           = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
+	MinecraftBedrockAPIURL = "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links"
+	DataFilePath           = "bedrock-server-downloads.json"
+	UserAgent              = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
 )
 
 // Data structures
@@ -43,9 +42,9 @@ func main() {
 }
 
 func processVersions() error {
-	// Fetch downloads
+	// Fetch downloads from new API
 	client := &http.Client{}
-	req, err := http.NewRequest("GET", MinecraftBedrockURL, nil)
+	req, err := http.NewRequest("GET", MinecraftBedrockAPIURL, nil)
 	if err != nil {
 		return err
 	}
@@ -56,23 +55,25 @@ func processVersions() error {
 	}
 	defer resp.Body.Close()
 
-	// Parse HTML
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
-	if err != nil {
+	type apiResponse struct {
+		Result struct {
+			Links []struct {
+				DownloadType string `json:"downloadType"`
+				DownloadURL  string `json:"downloadUrl"`
+			} `json:"links"`
+		} `json:"result"`
+	}
+
+	var apiResp apiResponse
+	if err := json.NewDecoder(resp.Body).Decode(&apiResp); err != nil {
 		return err
 	}
 
-	// Extract URLs
 	urls := make(map[string]string)
-	doc.Find("a").Each(func(i int, s *goquery.Selection) {
-		if platform, exists := s.Attr("data-platform"); exists {
-			if href, ok := s.Attr("href"); ok && href != "" {
-				urls[platform] = href
-			}
-		}
-	})
+	for _, link := range apiResp.Result.Links {
+		urls[link.DownloadType] = link.DownloadURL
+	}
 
-	// Check if we found all URLs
 	platforms := []string{"serverBedrockWindows", "serverBedrockLinux",
 		"serverBedrockPreviewWindows", "serverBedrockPreviewLinux"}
 	for _, p := range platforms {
