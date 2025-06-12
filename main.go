@@ -178,7 +178,7 @@ func processVersion(data *ServerData, isPreview bool, windowsURL, linuxURL strin
 func extractVersion(url string) (string, error) {
 	pattern := regexp.MustCompile(`bedrock-server-(\d+\.\d+(\.\d+){1,2})\.zip`)
 	matches := pattern.FindStringSubmatch(url)
-	if matches == nil || len(matches) < 2 {
+	if len(matches) < 2 {
 		return "", fmt.Errorf("unable to extract version from URL: %s", url)
 	}
 	return matches[1], nil
