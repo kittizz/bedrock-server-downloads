@@ -352,6 +352,14 @@
         "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.26.13.1.zip"
       }
     },
+    "1.26.14": {
+      "windows": {
+        "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.26.14.1.zip"
+      },
+      "linux": {
+        "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-1.26.14.1.zip"
+      }
+    },
     "1.26.2": {
       "windows": {
         "url": "https://www.minecraft.net/bedrockdedicatedserver/bin-win/bedrock-server-1.26.2.1.zip"
